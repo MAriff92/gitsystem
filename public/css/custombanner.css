@@ -1,0 +1,53 @@
+.imgcontainer {
+    margin-top: 2%;
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+}
+
+/* .overlay {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  right: 50%;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  -webkit-transition:0.35s,.5s ease;
+  transition: opacity 0.35s,.5s ease;
+} */
+
+
+.imgcontainer:hover .overlay {
+  width: 100%;
+  left: 0;
+}
+
+.figcaption {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  padding-top: 10%;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+}
+
+body {
+    background: #2f3238;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1em;
+    font-family: 'Raleway', Arial, sans-serif;
+  }
