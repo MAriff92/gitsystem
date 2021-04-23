@@ -42,14 +42,16 @@
         </tr>
         </thead>
         <tbody id="timesheet-list" name="timesheet-list">
+        @php $counter = 1; @endphp
         @foreach ($timesheets as $timesheet)
         {{-- {{ dd($timesheet) }} --}}
             <tr>
-                <td>{{ ($timesheet->id) }}</td>
+                <td>{{ ($counter) }}</td>
                 <td>{{ ($timesheet->staffname) }}</td>
                 <td>@nl2br($timesheet->stafftask)</td>
                 <td>{{ ($timesheet->taskdate) }}</td>
             </tr>
+            @php $counter++; @endphp
         @endforeach
         </tbody>
     </table>
