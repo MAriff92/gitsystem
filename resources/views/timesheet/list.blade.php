@@ -101,9 +101,24 @@
 $('#timesheetlist').DataTable({
     dom: 'Bfrtip',
     responsive: true,
-    buttons: [
-        'copy', 'excel', 'pdf'
-    ]
+    buttons: [{
+    extend: 'print',
+    exportOptions: {
+        stripHtml: false
+    }
+}, {
+    extend: 'excel',
+    exportOptions: {
+        stripNewlines: false
+    }
+}, {
+    extend: 'pdf',
+    exportOptions: {
+        stripNewlines: false
+    }
+}
+],
+
 });
 
 </script>
