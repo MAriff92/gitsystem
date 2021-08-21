@@ -20,10 +20,11 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     //
 Route::get('timesheet/list', [TimesheetController::class, 'list'])->name('list');
 Route::resource('timesheet', TimesheetController::class);
+Route::view('profile','auth/profile')->name('profile');
 
 });
 
