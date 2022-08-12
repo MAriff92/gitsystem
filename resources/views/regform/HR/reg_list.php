@@ -1,0 +1,28 @@
+<?php
+if (!empty($_GET["key"])) {  
+    $result_array = [];
+    $currtime = date('m-d-Y h:i:s a',time());
+    $db = mysqli_connect('localhost', 'root', '', 'gitdb');
+    $sql = "SELECT * FROM dailyreg";
+    if (mysqli_query($db, $sql)) {
+        $result = mysqli_query($db, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            // output data of each row
+            while($row = mysqli_fetch_assoc($result)) {
+                array_push($result_array, $row);
+            }
+            echo json_encode(array("statusCode"=>200, "Time"=>$currtime, "data"=>$result_array));
+          }
+          else {
+            echo json_encode(array("statusCode"=>200, "Time"=>$currtime, "data"=>NULL));
+          }
+	} 
+	else {
+		echo json_encode(array("statusCode"=>201, "Time"=>$currtime));
+	}
+    mysqli_close($db);
+} 
+else {  
+    header("Location: https://gems.transwater.com.my/regform");
+}
+?>
